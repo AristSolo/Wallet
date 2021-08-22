@@ -3,7 +3,7 @@ const express = require("express");
 //
 const app = express();
 //
-const { users } = require("./routes");
+const { users,business, wallets } = require("./routes");
 
 // Enabling CORS for web access
 app.use((req, res, next) => {
@@ -34,6 +34,8 @@ app.use(
 );
 
  app.use("/users", users);
+ app.use("/business", business);
+ app.use("/wallet",wallets);
 
 const port = process.env.PORT || 5008;
 

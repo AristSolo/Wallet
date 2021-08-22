@@ -12,10 +12,12 @@ module.exports = {
         type: Sequelize.STRING
       },
       income: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true
       },
       expense: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true
       },
       business_id: {
         type: Sequelize.INTEGER

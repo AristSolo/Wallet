@@ -13,12 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Wallet.belongsTo(models.Business,{
         foreignKey: "business_id",
-        as: "business_id",
+        as: "business",
       });
       //
-      Wallet.belongsTo(model.User,{
+      Wallet.belongsTo(models.User,{
         foreignKey: "user_id",
-        as: "user_id"
+        as: "user"
       })
     }
   };
