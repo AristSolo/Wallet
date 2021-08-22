@@ -11,6 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Wallet.belongsTo(models.Business,{
+        foreignKey: "business_id",
+        as: "business_id",
+      });
+      //
+      Wallet.belongsTo(model.User,{
+        foreignKey: "user_id",
+        as: "user_id"
+      })
     }
   };
   Wallet.init({
