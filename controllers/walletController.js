@@ -62,6 +62,8 @@ module.exports = {
       })
       .catch((error) => result(error, null));
   },
+  //
+  //Create a function that displays all wallets details, of a specific user
   getWalletBalances(userId, result) {
    
     Wallet.findAll({
@@ -72,16 +74,11 @@ module.exports = {
           return {walletName: wallet.name, walletExpense: wallet.expense,
             walletIncome: wallet.income, walletBalance: wallet.income - wallet.expense}
         })
-
-        let walletsExpense = filterRecords.reduce((a,b)=>
-          +a + +b.walletExpense, 0
-        )
-        let walletsIncome = filterRecords.reduce((a,b)=>
-          +a + +b.walletIncome, 0
-        )
-        let walletsBalance = filterRecords.reduce((a,b)=>
-          +a + +b.walletBalance, 0
-        ) 
+        //
+        let walletsExpense = filterRecords.reduce((a,b) => +a + +b.walletExpense, 0 )
+        let walletsIncome = filterRecords.reduce((a,b) => +a + +b.walletIncome, 0 )
+        let walletsBalance = filterRecords.reduce((a,b) => +a + +b.walletBalance, 0 ) 
+        //
         let data = {TotalExpenses : walletsExpense, TotalIncome: walletsIncome, TotalBalance: walletsBalance}
 
         result(null, data);
